@@ -1,0 +1,47 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin: 150px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+
+    // Стили макета для дочерних элементов (Field и Button)
+    &>* {
+        margin-bottom: 15px; // Интервал между элементами
+    }
+
+    &>*:last-child {
+        margin-bottom: 0;
+    }
+
+    // 1. Класс-контейнер, который мы передаем в Field.jsx через className
+    .fieldContainer {
+        display: flex;
+        flex-direction: column;
+        // Здесь можно добавить, например, margin-bottom: 20px;
+    }
+
+    // 2. Класс для переопределения стилей самого инпута (если нужно)
+    .inputOverride {
+        padding: 12px 10px; // Делаем инпут немного выше, переопределяя padding из Field.module.scss
+        border-color: #007bff; // Меняем цвет рамки
+    }
+
+    .fieldContainerError {
+        border: 1px solid red;
+        padding: 12px 10px;
+    }
+
+    // 3. Стили для кнопки (Button)
+    .submitButton {
+        padding: 12px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}

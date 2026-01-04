@@ -1,0 +1,16 @@
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    &Png {
+        width: 32px;
+        height: 32px;
+    }
+
+    &Label {
+        height: 18px;
+        line-height: 18px;
+    }
+}
