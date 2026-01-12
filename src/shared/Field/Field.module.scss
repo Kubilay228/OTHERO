@@ -1,19 +1,51 @@
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &[data-error='true'] {
+        .label {
+            color: red;
+        }
+
+        .inputWrapper {
+            border-color: red;
+        }
+    }
+}
+
 .label {
     font-size: 14px;
     font-weight: 500;
-    margin-bottom: 5px;
 }
 
-.labelError {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 5px;
-    color: red;
+// Это и есть наше "визуальное" поле ввода
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    padding: 0 12px; // Внутренние отступы, чтобы контент не прилипал к краям
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: border-color 0.2s;
+
+    &:focus-within {
+        border-color: #007bff; // Подсвечиваем рамку при клике в инпут
+    }
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px; // Отступ от иконки до текста
+    flex-shrink: 0; // Чтобы иконка не сплющивалась
 }
 
 .input {
-    padding: 8px 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    width: 100%;
+    padding: 10px 0; // Вертикальные отступы внутри
+    border: none; // Убираем родную рамку инпута
+    outline: none; // Убираем стандартное синее свечение браузера
     font-size: 14px;
+    background: transparent;
 }

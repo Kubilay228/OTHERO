@@ -1,17 +1,23 @@
-import s from './InteractiveButton'
+import clsx from 'clsx'
+import s from './InteractiveButton.module.scss'
 
-const InteractiveButton = (props) => {
-    const {
-        mode,
-        label,
-        icon,
-        iconPosition,
-    } = props
-
+const InteractiveButton = ({
+    className,
+    mode,
+    iconPosition,
+    label,
+    icon,
+}) => {
     return (
-        <button className={mode && (`s.button-${mode}`)}>
-            {label && <div className={s.label}>{label}</div>}
-            {icon && <img className ={iconPosition && (`s.icon-${iconPosition}`)} src={`@public/${icon}.svg`} />}
+        <button className={clsx(s.button, className)} data-mode={mode} data-icon-position={iconPosition}>
+            {icon && (
+                <img
+                    src={`/icons/${icon}.svg`}
+                    alt=""
+                    className={s.icon}
+                />
+            )}
+            {label && <span className={s.label}>{label}</span>}
         </button>
     )
 }

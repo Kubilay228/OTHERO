@@ -1,0 +1,27 @@
+.header {
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px #ECF0F5 solid;
+}
+
+.container {
+    display: flex;
+    max-width: 1440px;
+    height: 80px;
+    margin-inline: auto;
+    align-items: center;
+}
+
+.header-logo {
+    margin-left: 90px;
+}
+
+.header-field {
+    // Теперь это применится к s.field и корректно отодвинет соседа
+    margin-inline: 210px 270px;
+    flex: 1; // Чтобы поле занимало доступное пространство
+}
+
+.header-button {
+    margin-right: 90px; // Обязательно добавляем px
+}
