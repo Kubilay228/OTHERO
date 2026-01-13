@@ -1,0 +1,114 @@
+.container {
+    width: 100%;
+    max-width: 290px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+/* ───── Profile block ───── */
+
+.profileBox {
+    display: flex;
+    flex-direction: column;
+}
+
+/* фон профиля */
+.background {
+    height: 72px;
+    width: 290px;
+    background-image: var(--profile-bg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding-left: 32px;
+}
+
+/* аватар */
+.profile {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    position: absolute;
+    top: 44px;
+
+    border: 1px solid #fff;
+    background: #000;
+}
+
+/* инфо пользователя */
+.userInfo {
+    padding: 48px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 32px;
+
+    h1 {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    p {
+        font-size: 13px;
+        color: #aaa;
+        margin: 0;
+        line-height: 1.4;
+    }
+}
+
+/* ───── Navigation ───── */
+
+.navigationBox {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    gap: 1px;
+    padding-left: 32px;
+}
+
+/* прокидываем стиль в InteractiveButton */
+.navigationBox :global(.button) {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: transparent;
+    transition: background 0.15s ease;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    &[data-mode="active"] {
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* иконки */
+.navigationBox :global(.icon) {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+}
+
+/* текст */
+.navigationBox :global(.label) {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.navigation-button {
+    background-color: #fff;
+    max-width: 235px;
+    height: 50px;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid #ECF0F5;
+    }
+
+}

@@ -36,3 +36,10 @@
 body {
     background-color: #FAFBFF;
 }
+
+a {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+    background: none;
+}

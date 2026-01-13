@@ -7,9 +7,28 @@ const InteractiveButton = ({
     iconPosition,
     label,
     icon,
+    type,
 }) => {
+    if (type === 'button') {
+        return (
+            <button className={clsx(s.button, className)} data-mode={mode} data-icon-position={iconPosition}>
+                {icon && (
+                    <img
+                        src={`/icons/${icon}.svg`}
+                        alt=""
+                        className={s.icon}
+                    />
+                )}
+                {label && <span className={s.label}>{label}</span>}
+            </button>
+        )
+    }
     return (
-        <button className={clsx(s.button, className)} data-mode={mode} data-icon-position={iconPosition}>
+        <a
+            href='/'
+            className={clsx(s.button, className)}
+            data-mode={mode}
+            data-icon-position={iconPosition}>
             {icon && (
                 <img
                     src={`/icons/${icon}.svg`}
@@ -18,7 +37,7 @@ const InteractiveButton = ({
                 />
             )}
             {label && <span className={s.label}>{label}</span>}
-        </button>
+        </a>
     )
 }
 

@@ -20,7 +20,7 @@ const Header = () => {
                     className={s['header-button']}
                     mode='big'
                     label='Logout'
-                    icon='user'
+                    icon='userdark'
                     iconPosition='after'
                 />
             </div>
