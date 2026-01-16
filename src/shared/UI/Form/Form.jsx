@@ -5,12 +5,16 @@ import Button from './../Button/Button';
 const Form = (props) => {
     const {
         className,
+        onSubmit,
     } = props
+
+    const { log, pas } = useContext(AuthContext)
 
     return (
         <form
             className={`${className} ${s.form}`}
             action=""
+            onSubmit={onSubmit}
         >
             <Field
                 className={s.fieldContainer}
@@ -18,6 +22,7 @@ const Form = (props) => {
                 id='login'
                 name='login'
                 label='Введите логин'
+                onChange={log}
             />
             <Field
                 className={s.fieldContainer}
@@ -25,6 +30,7 @@ const Form = (props) => {
                 id='password'
                 name='password'
                 label='Введите пароль'
+                onChange={pas}
             />
             <Button
                 className={s.submitButton}

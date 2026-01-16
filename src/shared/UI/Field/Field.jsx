@@ -7,7 +7,8 @@ const Field = (props) => {
         error,
         id,
         className, // Это класс из Хедера (s['header-field'])
-        ...rest    // Все остальные пропсы (onChange, value и т.д.)
+        value,
+        onChange,
     } = props;
 
     return (
@@ -27,7 +28,8 @@ const Field = (props) => {
                     id={id}
                     className={s.input}
                     placeholder={label}
-                    {...rest} 
+                    value={value}
+                    onChange={onChange}
                 />
             </div>
         </div>

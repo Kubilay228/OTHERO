@@ -1,6 +1,11 @@
-import Form from '../../shared/Form'
-import Logo from '../../shared/Logo'
+import { useContext } from 'react'
+import Form from '../../shared/UI/Form'
+import Logo from '../../shared/UILogo'
 import s from './Auth.module.scss'
+
+const {
+    logIn
+} = useContext(AuthContext)
 
 const Auth = () => {
     return (
@@ -8,7 +13,9 @@ const Auth = () => {
             <header className={s.header}>
                 <Logo />
             </header>
-            <Form />
+            <Form
+                onSubmit={logIn}
+            />
         </div>
     )
 }

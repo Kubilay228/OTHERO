@@ -9,12 +9,7 @@ function App() {
 
   return (
     <>
-      <ProfileNavigation
-        profile='avatar'
-        profileLabel='Dick Pick'
-        profileDescription='Huesos'
-        profileBackground='background-profile'
-      />
+      <Auth />
     </>
   )
 }
