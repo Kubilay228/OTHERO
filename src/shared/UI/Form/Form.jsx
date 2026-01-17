@@ -1,6 +1,8 @@
 import s from './Form.module.scss'
 import Field from '../Field/Field'
-import Button from './../Button/Button';
+import Button from '../Button'
+import useLogIn from "../../../features/LogIn/useLogIn";
+
 
 const Form = (props) => {
     const {
@@ -8,13 +10,13 @@ const Form = (props) => {
         onSubmit,
     } = props
 
-    const { log, pas } = useContext(AuthContext)
+    const { email, password, log, pas, logIn } = useLogIn()
 
     return (
         <form
             className={`${className} ${s.form}`}
             action=""
-            onSubmit={onSubmit}
+            onSubmit={logIn}
         >
             <Field
                 className={s.fieldContainer}
@@ -23,6 +25,7 @@ const Form = (props) => {
                 name='login'
                 label='Введите логин'
                 onChange={log}
+                value={email}
             />
             <Field
                 className={s.fieldContainer}
@@ -31,11 +34,11 @@ const Form = (props) => {
                 name='password'
                 label='Введите пароль'
                 onChange={pas}
+                value={password}
             />
             <Button
                 className={s.submitButton}
                 title='Войти'
-            // onClick={userF}
             />
         </form>
     )

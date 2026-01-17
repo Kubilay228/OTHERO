@@ -1,8 +1,8 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useMemo, useState } from "react";
 import { supabase } from "../../../shared/API/supabaseClient";
 import useLogIn from "../../../features/LogIn/useLogIn";
 
-const AuthContext = createContext({})
+export const AuthContext = createContext({})
 
 const AuthProvider = (props) => {
     const { children } = props
@@ -12,37 +12,35 @@ const AuthProvider = (props) => {
     const [loading, setLoading] = useState(null)
 
     useEffect(() => {
-        let unsub
+        let unsub;
 
-        async () => {
-            setLoading(true)
+        const init = async () => {
+            setLoading(true);
+            const { data } = await supabase.auth.getSession();
+            const s = data?.session ?? null;
+            setSession(s);
+            setUser(s?.user ?? null);
+            setLoading(false);
+        };
 
-            const { data } = await supabase.auth.getSession()
-            const s = data?.session ?? null
-            setSession(s)
-            setUser(s?.user ?? null)
-        }
+        init();
 
         const { data: sub } = supabase.auth.onAuthStateChange((_event, newSession) => {
-            setSession(newSession ?? null)
-            setUser(newSession?.user ?? null)
-        })
+            setSession(newSession ?? null);
+            setUser(newSession?.user ?? null);
+            setLoading(false);
+        });
 
-        unsub = () => sub?.subscription?.unsubscribe?.()
+        unsub = () => sub?.subscription?.unsubscribe?.();
 
-        return unsub()
-    }, [])
-
-    const { log, pas, logIn } = useLogIn()
+        return () => unsub();
+    }, []);
 
     const value = useMemo(
         () => ({
             session,
             user,
             loading,
-            log,
-            pas,
-            logIn,
             login: async (email, password) => {
                 const { error } = await supabase.auth.signInWithPassword({ email, password })
                 if (error) throw error
@@ -61,3 +59,5 @@ const AuthProvider = (props) => {
         </AuthContext.Provider>
     )
 }
+
+export default AuthProvider

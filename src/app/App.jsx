@@ -1,15 +1,15 @@
 import Auth from '../pages/Auth/Auth'
-import Field from '../shared/Field/Field'
-import InteractiveButton from '../shared/InteractiveButton'
-import ProfileNavigation from '../shared/ProfileNavigation/ProfileNavigation'
-import Header from '../widgets/Header'
 import './App.css'
+import AuthProvider from './providers/Auth/AuthProvider'
+import { AppRouter } from './router/RouterApp'
 
 function App() {
 
   return (
     <>
-      <Auth />
+      <AuthProvider>
+        <AppRouter />
+      </AuthProvider>
     </>
   )
 }
