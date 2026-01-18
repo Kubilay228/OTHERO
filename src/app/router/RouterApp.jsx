@@ -30,6 +30,8 @@ export function AppRouter() {
         loading,
     } = useContext(AuthContext)
 
+    
+
     return (
         <Routes>
             {/* Только для гостей */}

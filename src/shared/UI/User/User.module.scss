@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 256px;
+    height: 56px;
+    align-items: center;
+}
+
+.icon {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 5px;
+}
+
+.user {
+    &Box {
+        margin-left: 16px; // расстояние от img
+        margin-right: auto; // чтобы кнопка ушла вправо
+    }
+
+    &Name {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    &Role {
+        font-size: 12px;
+        font-weight: 400;
+    }
+}
