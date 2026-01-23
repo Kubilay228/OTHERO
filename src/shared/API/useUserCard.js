@@ -33,16 +33,6 @@ export default function useUserCard(id) {
                 return;
             }
 
-            if (!data) {
-                // не найдено — не ошибка
-                setUserLabel("");
-                setUserDescription("");
-                setUserAvatar("");
-                setUserBackground("");
-                setLoading(false);
-                return;
-            }
-
             setUserLabel(data.display_name ?? "");
             setUserDescription(data.bio ?? "");
             setUserAvatar(data.avatar_url ?? "");

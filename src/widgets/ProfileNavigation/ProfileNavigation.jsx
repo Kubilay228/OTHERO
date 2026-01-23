@@ -47,12 +47,12 @@ const ProfileNavigation = () => {
                             className={s.background}
                             style={{
                                 "--profile-bg": userBackground
-                                    ? `url(/icons/${userBackground}.jpg)`
+                                    ? `url(${userAvatar}?t=${Date.now()})`
                                     : "none",
                             }}
                         >
                             {userAvatar ? (
-                                <img src={`/icons/${userAvatar}.jpg`} className={s.profile} />
+                                <img src={`${userAvatar}?t=${Date.now()}`} className={s.profile} />
                             ) : null}
                         </div>
 

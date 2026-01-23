@@ -1,24 +1,13 @@
+import useGroupProfiles from '../../shared/API/useGroupProfiles'
 import User from '../../shared/UI/User/User'
 import s from './Ship.module.scss'
 
 const Ship = (props) => {
-    const users = [
-        {
-            userName: '',
-            userRole: '',
-            userAvatar: '',
-        },
-        {
-            userName: '',
-            userRole: '',
-            userAvatar: '',
-        },
-        {
-            userName: '',
-            userRole: '',
-            userAvatar: '',
-        },
-    ]
+    const {
+        error,
+        loading,
+        groupProfiles,
+    } = useGroupProfiles()
 
     return (
         <div className={s.container}>
@@ -26,14 +15,20 @@ const Ship = (props) => {
                 Participans
             </div>
             <div className={s.usersBox}>
-                {users.map((item) => {
+                {groupProfiles.map((item) => {
                     const key = crypto.randomUUID()
+                    const {
+                        display_name: userName,
+                        bio: userRole,
+                        avatar_url: userAvatar,
+                    } = item.profile
+                    console.log(item.profile)
                     return (
                         <User
                             key={key}
-                            userName='Хуе Сос'
-                            userRole='Хуесос'
-                            userAvatar='avatar'
+                            userName={userName}
+                            userRole={userRole}
+                            userAvatar={userAvatar}
                         />
                     )
                 })}

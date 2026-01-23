@@ -9,7 +9,7 @@ const User = (props) => {
 
     return (
         <div className={s.container}>
-            <img className={s.userAvatar} src={`/icons/${userAvatar}.jpg`} />
+            <img className={s.userAvatar} src={userAvatar} />
             <div className={s.userBox}>
                 <p className={s.userName}>{userName}</p>
                 <p className={s.userRole}>{userRole}</p>

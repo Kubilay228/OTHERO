@@ -5,17 +5,12 @@ import { AuthContext } from "../../app/providers/auth/AuthProvider";
 import s from './Auth.module.scss'
 
 const Auth = () => {
-    const {
-        logIn
-    } = useContext(AuthContext)
     return (
         <div className={s.container}>
             <header className={s.header}>
                 <Logo />
             </header>
-            <Form
-                onSubmit={logIn}
-            />
+            <Form/>
         </div>
     )
 }

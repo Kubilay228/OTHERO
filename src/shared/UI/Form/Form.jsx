@@ -7,7 +7,6 @@ import useLogIn from "../../../features/LogIn/useLogIn";
 const Form = (props) => {
     const {
         className,
-        onSubmit,
     } = props
 
     const { email, password, log, pas, logIn } = useLogIn()
