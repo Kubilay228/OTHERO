@@ -1,6 +1,6 @@
-import Field from '../../shared/Field/Field'
-import InteractiveButton from '../../shared/InteractiveButton'
-import Logo from '../../shared/Logo'
+import Field from '../../shared/UI/Field'
+import InteractiveButton from '../../shared/UI/InteractiveButton'
+import Logo from '../../shared/UI/Logo'
 import s from './Header.module.scss'
 
 const Header = () => {

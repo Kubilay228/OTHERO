@@ -1,0 +1,21 @@
+.page {
+    max-width: 1440px;
+    margin-inline: auto;
+}
+
+/* header fixed → нужен отступ */
+.layout {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr) 320px;
+    gap: 24px;
+
+    padding-top: 100px; // высота header
+    padding-inline: 50px;
+}
+
+/* колонки — обычные */
+.left,
+.center,
+.right {
+    min-width: 0;
+}

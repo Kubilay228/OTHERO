@@ -4,6 +4,8 @@ import Auth from "../../pages/Auth/Auth"
 import { useContext } from 'react'
 import { AuthContext } from "../providers/auth/AuthProvider"
 import ProfileNavigation from "../../widgets/ProfileNavigation/ProfileNavigation"
+import LakeCenter from "../../widgets/LakeCenter"
+import Main from "../../pages/Main"
 
 // Заглушки страниц (можешь заменить на свои)
 const HomePage = () => <div>HOME (protected)</div>
@@ -43,7 +45,7 @@ export function AppRouter() {
             {/* Только для залогиненных */}
             <Route element={<RequireAuth user={user} loading={loading} />}>
                 {/* <Route path="/" element={<HomePage />} /> */}
-                <Route path="/" element={<ProfileNavigation />} />
+                <Route path="/" element={<Main/>} />
             </Route>
 
             {/* На всё остальное */}

@@ -1,9 +1,11 @@
 .container {
+    position: fixed;
     width: 100%;
     max-width: 290px;
     border-radius: 8px;
     overflow: hidden;
     background-color: #fff;
+    border: 1px #ECF0F5 solid;
 }
 
 /* ───── Profile block ───── */
