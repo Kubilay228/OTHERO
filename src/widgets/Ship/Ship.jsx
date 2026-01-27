@@ -1,4 +1,4 @@
-import useGroupProfiles from '../../shared/API/useGroupProfiles'
+import useGroupProfiles from '../../entities/Lake/API/useGroupProfiles'
 import User from '../../shared/UI/User/User'
 import s from './Ship.module.scss'
 
@@ -22,7 +22,7 @@ const Ship = (props) => {
                         bio: userRole,
                         avatar_url: userAvatar,
                     } = item.profile
-                    console.log(item.profile)
+                    console.log(groupProfiles)
                     return (
                         <User
                             key={key}

@@ -6,9 +6,18 @@ import { AuthContext } from "../providers/auth/AuthProvider"
 import ProfileNavigation from "../../widgets/ProfileNavigation/ProfileNavigation"
 import LakeCenter from "../../widgets/LakeCenter"
 import Main from "../../pages/Main"
+import useLakeMain from "../../entities/Lake/API/useLakeMain"
 
 // Заглушки страниц (можешь заменить на свои)
-const HomePage = () => <div>HOME (protected)</div>
+const HomePage = () => {
+    const { lake, error, loading } = useLakeMain('f37c7dc6-e0af-4c67-9a4e-65cd00082dd7')
+    { console.log(lake) }
+    return (
+        <div > 404 / NO ROUTE</div >
+    )
+
+
+}
 const NotesPage = () => <div>NOTES (protected)</div>
 const Zero = () => <div>404 / NO ROUTE</div>
 
@@ -33,7 +42,7 @@ export function AppRouter() {
         loading,
     } = useContext(AuthContext)
 
-    
+
 
     return (
         <Routes>

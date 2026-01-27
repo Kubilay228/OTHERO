@@ -1,8 +1,8 @@
 import { useEffect, useState, useContext } from "react";
-import { supabase } from "./supabaseClient";
-import { AuthContext } from "../../app/providers/auth/AuthProvider";
+import { supabase } from "../../../shared/API/supabaseClient";
+import { AuthContext } from "../../../app/providers/auth/AuthProvider";
 
-export default function () {
+export default function useGroupProfiles() {
     const { user } = useContext(AuthContext);
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
@@ -23,14 +23,10 @@ export default function () {
 
             setGroupProfiles(data ?? [])
             setLoading(false)
-
         }
-
         init()
     }, [user])
 
-
-    
     return {
         error,
         loading,

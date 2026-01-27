@@ -3,12 +3,6 @@
     max-width: 720px;
 }
 
-.scroll {
-    height: calc(100vh - 24px);
-    // overflow-y: auto;
-    padding-right: 6px;
-}
-
 .headerCard {
     // position: sticky;
     top: 0;
@@ -79,14 +73,17 @@
     gap: 10px;
     flex-wrap: wrap;
     justify-content: flex-end;
+    width: 185px;
 }
 
 .btnGhost {
     background: #fff;
     border: 1px solid #ECF0F5;
+    width: 185px;
 }
 
 .btnDanger {
+    width: 185px;
     background: #fff;
     border: 1px solid #ECF0F5;
     color: #d44;
