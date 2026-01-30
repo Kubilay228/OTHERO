@@ -2,17 +2,12 @@ import { useMemo, useState } from 'react'
 import s from './LakeCenter.module.scss'
 import Button from '../../shared/UI/Button/Button'
 import useLakeMain from './../../entities/Lake/API/useLakeMain';
+import useLakePlan from '../../entities/Lake/API/useLakePlan';
 import useGroupProfiles from '../../entities/Lake/API/useGroupProfiles';
 
 const LakeCenter = ({
 
     lak = {
-        plan: [
-            { time: '19:30', title: 'Сбор', text: 'Встречаемся в точке сбора.' },
-            { time: '20:00', title: 'Старт', text: 'Начинаем. Следим за апдейтами орга.' },
-            { time: '23:00', title: 'Финиш', text: 'Заканчиваем и оставляем чисто.' },
-        ],
-
         organizerRating: { score: 4.8, badge: 'хороший организатор', votes: 128 },
         participantVibes: { like: 23, ok: 17, dislike: 2 },
         ratingTags: ['отличная компания', 'безопасно', 'чисто'],
@@ -37,6 +32,8 @@ const LakeCenter = ({
     } = useGroupProfiles()
 
     const { lake, error, loading } = useLakeMain('f37c7dc6-e0af-4c67-9a4e-65cd00082dd7')
+    const { lakePlan } = useLakePlan('f37c7dc6-e0af-4c67-9a4e-65cd00082dd7')
+
     const [locOpen, setLocOpen] = useState(false)
 
     // безопасные значения (НЕ из lak)
@@ -168,9 +165,9 @@ const LakeCenter = ({
                 <div className={s.block}>
                     <div className={s.blockTitle}>План</div>
                     <div className={s.timeline}>
-                        {(lak.plan || []).slice(0, 4).map((p, i) => (
+                        {(lakePlan || []).map((p, i) => (
                             <div key={i} className={s.timelineItem}>
-                                <div className={s.time}>{p.time}</div>
+                                <div className={s.time}>{p.time_label}</div>
                                 <div className={s.tBody}>
                                     <div className={s.tTitle}>{p.title}</div>
                                     {p.text ? <div className={s.tText}>{p.text}</div> : null}

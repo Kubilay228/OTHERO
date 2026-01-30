@@ -7,6 +7,8 @@ import ProfileNavigation from "../../widgets/ProfileNavigation/ProfileNavigation
 import LakeCenter from "../../widgets/LakeCenter"
 import Main from "../../pages/Main"
 import useLakeMain from "../../entities/Lake/API/useLakeMain"
+import LakeMini from "../../widgets/LakeMini"
+import LakesFilters from "../../features/LakesFilters/UI"
 
 // Заглушки страниц (можешь заменить на свои)
 const HomePage = () => {
@@ -54,7 +56,8 @@ export function AppRouter() {
             {/* Только для залогиненных */}
             <Route element={<RequireAuth user={user} loading={loading} />}>
                 {/* <Route path="/" element={<HomePage />} /> */}
-                <Route path="/" element={<Main/>} />
+                {/* <Route path="/" element={<Main/>} /> */}
+                <Route path="/" element={<LakesFilters />} />
             </Route>
 
             {/* На всё остальное */}
@@ -62,3 +65,24 @@ export function AppRouter() {
         </Routes>
     )
 }
+
+{/* <LakeMini lake={{
+    id: "1",
+    name: "Озеро Эпштейна",
+    status: "prep",
+    city: "Псков",
+    starts_at: "2026-01-26T16:00:00Z",
+    capacity: 30,
+    description: "Ночной заплыв, костёр и музыка после. Без треша, спокойно.",
+    tags: ["отличная компания", "безопасно", "чисто"],
+    age_min: 20,
+    age_max: 30,
+    organizer_rating: 4.8,
+    organizer_badge: "хороший организатор",
+    participants_rating: 4.5,
+}}
+    joinedCount={18}
+    onDetails={() => alert("Подробнее")}
+    onMap={() => alert("Карта")}
+    onArchive={() => alert("Архив")}
+    onLeave={() => alert("Выйти")} /> */}

@@ -22,7 +22,6 @@ const Ship = (props) => {
                         bio: userRole,
                         avatar_url: userAvatar,
                     } = item.profile
-                    console.log(groupProfiles)
                     return (
                         <User
                             key={key}
